@@ -12,3 +12,8 @@ def filter_by_position(data, position: str):
 
 def filter_by_name(data, name: str):
     return list(filter(lambda d: d["playerName"] == name, data))
+
+
+def list_of_names(data):
+    map_names = map(lambda d: d["playerName"], data)
+    return list(set(map_names))

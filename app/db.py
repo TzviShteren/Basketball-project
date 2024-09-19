@@ -1,10 +1,10 @@
 from imp import new_module
-
 from flask_sqlalchemy import SQLAlchemy
 from app.models.player import Player
 from app.models.player_all_season import PlayerAllSeasons
 from app.api import ALL_PLAYERS_DATA
 from app.utils.statistics import *
+from app.utils.calculations_and_more import list_of_names
 
 db = SQLAlchemy()
 AVERAGE_SHOOTING = average_shooting(ALL_PLAYERS_DATA)
@@ -28,7 +28,11 @@ def seed_data(ALL_PLAYERS_DATA):
             )
             db.session.add(new_module)
         db.session.commit()
+
+        for player_name in list_of_names(ALL_PLAYERS_DATA):
+            pass
     except Exception as e:
         print(e)
+
 
     print("Seed data inserted.")
