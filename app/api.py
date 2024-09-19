@@ -8,8 +8,8 @@ def get_all_players_information_from_api():
 
     API_URL = "http://b8c40s8.143.198.70.30.sslip.io/api/PlayerDataTotals/query?season="
     for season in list_of_season:
-        result += requests.get(API_URL + season).json()["results"]
+        result += requests.get(f"{API_URL}{season}").json()
     return result
 
 
-ALL_PLAYERS_DATA = get_all_players_information_from_api()
+

@@ -2,9 +2,6 @@ from app.utils.calculations_and_more import *
 import statistics
 
 
-# from app.models.player_all_season import PlayerAllSeasons
-
-
 def ratio_of_assists_to_turnovers(assist: float, turnover: float) -> float:
     return assist / turnover
 
@@ -19,7 +16,7 @@ def average_shooting(data):
 
             # mean calculates the arithmetic mean (average) of a list of numbers.
             dict_of_average[f"{season}-{position}"] = statistics.mean(
-                list(map(lambda x: x["fieldGoals"] / x["games"], according_to_position_end_season.values())))
+                list(map(lambda x: x["fieldGoals"] / x["games"], according_to_position_end_season)))
 
     return dict_of_average
 
@@ -31,14 +28,14 @@ def data_connection_all_seasons(data, player_name):
         ATR = ratio_of_assists_to_turnovers(season_player["assistPercent"], season_player["turnoverPercent"])
         PPG_ratio = PPG_Ratio_of_player(season_player, data)
         relevant_information["games"] += season_player["games"],
-        relevant_information["two_percent"] += season_player["two_percent"],
-        relevant_information["three_percent"] += season_player["three_percent"],
+        relevant_information["twoPercent"] += season_player["twoPercent"],
+        relevant_information["threePercent"] += season_player["threePercent"],
         relevant_information["points"] += season_player["points"],
         relevant_information["ATR"] += ATR,
         relevant_information["PPG_ratio"] += PPG_ratio
     the_len_of_list_of_season_player = len(list_of_season_player)
-    relevant_information["two_percent"] /= the_len_of_list_of_season_player
-    relevant_information["three_percent"] /= the_len_of_list_of_season_player
+    relevant_information["twoPercent"] /= the_len_of_list_of_season_player
+    relevant_information["threePercent"] /= the_len_of_list_of_season_player
     relevant_information["ATR"] /= the_len_of_list_of_season_player
     relevant_information["PPG_ratio"] /= the_len_of_list_of_season_player
 
