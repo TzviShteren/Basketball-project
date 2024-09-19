@@ -23,4 +23,6 @@ def delete_team(team_id):
 
 @teams_bp.route('compare', methods=['GET'])
 def get_team_details(team_id):
+    #aaa = request.args.to_dict()
+    #team1ewsifrhy = request.args.get('team1')
     pass
