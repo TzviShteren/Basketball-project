@@ -7,6 +7,8 @@ class PlayerAllSeasons(db.Model):
     player_name = db.Column(db.String(80), nullable=False)
     team = db.Column(db.String(80), nullable=False)
     position = db.Column(db.String(80), nullable=False)
+    season = db.Column(db.String(80), nullable=False)
+    points = db.Column(db.Integer, nullable=False)
     games = db.Column(db.Integer(80), nullable=False)
     two_percent = db.Integer(db.String(80), nullable=False)
     three_percent = db.Integer(db.String(80), nullable=False)

@@ -2,13 +2,13 @@ import json
 import requests
 from app.utils.calculations_and_more import list_of_season
 
-API_URL = "https://nba-stats-db.herokuapp.com/api/"
-
 
 def get_all_players_information_from_api():
     result = []
+
+    API_URL = "http://b8c40s8.143.198.70.30.sslip.io/api/PlayerDataTotals/query?season="
     for season in list_of_season:
-        result += requests.get(API_URL + f"playerdata/season/{season}").json()["results"]
+        result += requests.get(API_URL + season).json()["results"]
     return result
 
 

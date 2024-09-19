@@ -51,3 +51,9 @@ def test_filter_by_name():
 
 def test_list_of_names():
     assert set(list_of_names(sample_data)) == {"John", "Mike", "Chris"}
+
+
+def test_seasons_player():
+    assert seasons_player(sample_data, "John") == "2021, 2020"
+    assert seasons_player(sample_data, "Mike") == "2021, 2019"
+    assert seasons_player(sample_data, "Chris") == "2020"
