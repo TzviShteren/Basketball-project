@@ -3,6 +3,8 @@ import statistics
 
 
 def ratio_of_assists_to_turnovers(assist: float, turnover: float) -> float:
+    if turnover == 0:
+        return 0
     return assist / turnover
 
 
@@ -38,11 +40,12 @@ def data_connection_all_seasons(data, player_name):
     relevant_information["threePercent"] /= the_len_of_list_of_season_player
     relevant_information["ATR"] /= the_len_of_list_of_season_player
     relevant_information["PPG_ratio"] /= the_len_of_list_of_season_player
+    return relevant_information
 
 
 def PPG_Ratio_of_player(player, data):
     dict_of_average = average_shooting(data)
-    points_per_game = player[""] / player["games"]
+    points_per_game = player["points"] / player["games"]
     str_of_key = f"{player['season']}-{player['position']}"
     if str_of_key in dict_of_average:
         return points_per_game / dict_of_average[str_of_key]

@@ -1,4 +1,5 @@
 import json
+# 'C', 'SG-PG-SF', 'SF-SG', 'PG-SG', 'PF-C', 'SF-PF', 'SG-PG', 'PF-SF', 'C-PF', 'PG', 'PF', 'SG-SF', 'SF', 'SG'
 list_of_position = ["PG", "SG", "SF", "PF", "C"]
 list_of_season = [2022, 2023, 2024]
 
@@ -8,7 +9,7 @@ def filter_by_season(data, season: int):
 
 
 def filter_by_position(data, position: str):
-    return list(filter(lambda d: d["position"] == position, data))
+    return list(filter(lambda d: position in d["position"].split("-"), data))
 
 
 def filter_by_name(data, name: str):

@@ -23,7 +23,6 @@ def seed_data(all_data):
                 season=player['season'],
             )
             db.session.add(new_module_player)
-        db.session.commit()
 
         for player_name in filter_by_name(all_data):
             statistics_dict = data_connection_all_seasons(all_data, player_name)
@@ -41,8 +40,9 @@ def seed_data(all_data):
                 season=seasons_play_str,
             )
             db.session.add(new_module_player_all_seasons)
+
         db.session.commit()
+        print("Seed data inserted.")
     except Exception as e:
         print(e)
 
-    print("Seed data inserted.")

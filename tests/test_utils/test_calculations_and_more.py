@@ -24,14 +24,24 @@ def test_filter_by_season():
 
 
 def test_filter_by_position():
-    assert filter_by_position(sample_data, "Guard") == [
-        {"playerName": "John", "season": 2021, "position": "Guard"},
-        {"playerName": "John", "season": 2020, "position": "Guard"},
-        {"playerName": "Mike", "season": 2019, "position": "Guard"}
-    ]
-    assert filter_by_position(sample_data, "Forward") == [
+    sample_data_position = [
+        {"playerName": "John", "season": 2021, "position": "Guard-Forward"},
         {"playerName": "Mike", "season": 2021, "position": "Forward"},
-        {"playerName": "Chris", "season": 2020, "position": "Forward"}
+        {"playerName": "Chris", "season": 2020, "position": "Center-Guard"},
+    ]
+
+    assert filter_by_position(sample_data_position, "Guard") == [
+        {"playerName": "John", "season": 2021, "position": "Guard-Forward"},
+        {"playerName": "Chris", "season": 2020, "position": "Center-Guard"},
+    ]
+
+    assert filter_by_position(sample_data_position, "Forward") == [
+        {"playerName": "John", "season": 2021, "position": "Guard-Forward"},
+        {"playerName": "Mike", "season": 2021, "position": "Forward"},
+    ]
+
+    assert filter_by_position(sample_data_position, "Center") == [
+        {"playerName": "Chris", "season": 2020, "position": "Center-Guard"},
     ]
 
 

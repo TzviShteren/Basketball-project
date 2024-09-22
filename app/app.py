@@ -13,7 +13,7 @@ ALL_PLAYERS_DATA = read_json_file()
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///NBA-basketball.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///NBA-basket.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
